@@ -90,9 +90,8 @@ double mathematical_series(double x,int n)
 {
     double first = -((pow(x, 3)) / 6);
     double series_increment = (-(pow(x, 2) / ((2 * n + 1) * 2 * n)));
-    double my_function = 0;
-    my_function = x + first;
-    for (int i = 2; i < n; i++)
+    double my_function = x;
+    for (int i = 1; i < n; i++)
     {
         my_function += first *series_increment;
     };
@@ -128,7 +127,7 @@ void print_table_1(double x_start, double x_end, double delta_x, double epsilon)
     {
         double my_function = mathematical_series(x, n);
         double function = function_sin(x);
-        double sigma = abs(my_function * my_function - function * function);
+        double sigma = sqrt(abs(my_function * my_function - function * function));
         cout << "|" << std::setw(14) << fixed << std::setprecision(decimal) << x << 
             "|" << std::setw(26) << std::setprecision(decimal) << my_function << 
             "|" << std::setw(22) << std::setprecision(decimal) << function << "|" 
@@ -151,7 +150,7 @@ void print_table_2(double x_ideal)
     {
         double my_function = mathematical_series(x, n);
         double function = function_sin(x);
-        double sigma = abs(my_function * my_function - function * function);
+        double sigma = sqrt(abs(my_function * my_function - function * function));
         cout << "|" << std::setw(14) << fixed << std::setprecision(decimal) << epsilon <<
             "|" << std::setw(26) << std::setprecision(decimal) << my_function <<
             "|" << std::setw(22) << std::setprecision(decimal) << function << "|"
