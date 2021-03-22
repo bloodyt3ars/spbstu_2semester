@@ -74,7 +74,7 @@ string selection_from_to(string str)
         cin.ignore(32767, '\n');
         goto input2;
     }
-    new_str = new_str.substr(n, m);
+    new_str = new_str.substr(n, m-n);
     cout << "Результат отбора от " << n << " до " << m << " символа(ов): " << new_str << endl;
     str = save_or_not(str, new_str);
     cout << "---------------------------------------------" << endl;
