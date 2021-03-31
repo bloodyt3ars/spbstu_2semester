@@ -239,10 +239,13 @@ void quick_sort(int* arr[], int left_tip, int right_tip, int* p_count_of_compari
 		}
 		if (i_left <= j_right)
 		{
-			swap(arr[*i][i_left], arr[*i][j_right]);
+			if (arr[*i][i_left] != arr[*i][j_right])
+			{
+				swap(arr[*i][i_left], arr[*i][j_right]);
+				++(*p_count_of_permutations);
+			};
 			i_left++;
 			j_right--;
-			++(*p_count_of_permutations);
 		}
 	} while (i_left <= j_right);
 	if (left_tip < j_right)
@@ -369,5 +372,4 @@ input2:
 	delete[] copied_array;
 	delete[] array;
 }
-
 
