@@ -6,6 +6,7 @@ from app import bot, dp
 from keyboard import menu
 from config import WEATHER_TOKEN
 
+
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: Message):
     await message.answer("Привет. Тут можно узнать прогноз погоды в интересующем тебя городе.",
@@ -32,6 +33,6 @@ async def get_weather(message: Message):
     for elem in data['weather']:
         weather_state = elem['main']
     temperature = data['main']['temp'] - 273.15
-    temperature = round(temperature,1)
+    temperature = round(temperature, 1)
     city = data['name']
     await message.answer(text=f"Температура в {city}: {temperature}, {weather_state}")
