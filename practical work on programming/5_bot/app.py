@@ -2,8 +2,6 @@ from aiogram import Bot, Dispatcher, executor
 from config import BOT_TOKEN, admin_id
 
 
-
-
 bot = Bot(BOT_TOKEN)
 dp = Dispatcher(bot)
 

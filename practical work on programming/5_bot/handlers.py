@@ -4,7 +4,7 @@ import json
 from aiogram.types import Message, ChatActions
 from app import bot, dp
 from keyboard import menu
-
+from config import WEATHER_TOKEN
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: Message):
@@ -24,8 +24,7 @@ async def get_weather(message: Message):
     await bot.send_chat_action(message.from_user.id, ChatActions.TYPING)
     await sleep(1)
     city = message.text
-    weather_token = '0618430f1840b11db9ade66bc1fbb7c5'
-    weather_request = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_token}'
+    weather_request = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_TOKEN}'
     response = requests.get(weather_request)
     if response.status_code != 200:
         await message.answer(text="Упс...Город не найден")
